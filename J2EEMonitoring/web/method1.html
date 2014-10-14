@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>test2 Sample html - for github</title>
+        <title>test1 Sample html - for github</title>
         <link rel="shortcut icon" type="image/png" href="favicon.ico"/>
 
         <!-- start: CSS -->
@@ -23,8 +23,7 @@
 
         <!--[if !IE]>-->
         <script type="text/javascript">
-            window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
-        </script>
+            window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");</script>
         <!--<![endif]-->
 
         <!--[if IE]>
@@ -125,36 +124,39 @@
                         <ul class="nav main-menu">
 
                             <li>
-                                <a href="#" class="dropmenu" style="cursor: default">
-                                    <i class="fa fa-gears"></i>
+                                <a class="dropmenu">
+                                    <i class="fa fa-pencil-square"></i>
                                     <span class="hidden-sm text">
-                                        Test 1
+                                        Methods
                                     </span>
+                                    <span class="chevron closed"></span>
                                 </a>
-                            </li>
-                            <li class="active">
-                                <a href="#">
-                                    <i class="fa fa-star"></i>
-                                    <span class="hidden-sm text">
-                                        Test 2
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-cutlery"></i>
-                                    <span class="hidden-sm text">
-                                        Test 3
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-indent"></i>
-                                    <span class="hidden-sm text">
-                                        Test 4
-                                    </span>
-                                </a>
+                                <ul style="display: block">
+                                    <li class="active">
+                                        <a href="method1.html">
+                                            <i class="fa fa-pencil-square-o"></i>
+                                            <span class="hidden-sm text">
+                                                &emsp;&nbsp;Method 1
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="method2.html">
+                                            <i class="fa fa-pencil-square-o"></i>
+                                            <span class="hidden-sm text">
+                                                &emsp;&nbsp;Method 2
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="method3.html">
+                                            <i class="fa fa-pencil-square-o"></i>
+                                            <span class="hidden-sm text">
+                                                &emsp;&nbsp;Method 3
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
 
                         </ul>
@@ -179,7 +181,7 @@
                             </a>
                         </li>
                         <li class="active">
-                            Test 2
+                            Test 1
                         </li>
                     </ol>
 
@@ -209,32 +211,33 @@
 
                                     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
                                     <script type="text/javascript">
+
             google.load("visualization", "1", {packages: ["corechart"]});
             google.setOnLoadCallback(drawChart);
             function drawChart() {
-
                 var data = google.visualization.arrayToDataTable([
-                    ['Day', 'Developer 1', 'Developer 2'],
-                    ['1', 1000, 400],
-                    ['2', 1170, 460],
-                    ['3', 660, 1120],
-                    ['4', 1030, 540]
+                    ['Invocation', 'Aspect'],
+                    ['0', 1230],
+                    ['1', 1070],
+                    ['2', 630],
+                    ['3', 871],
+                    ['4', 950],
+                    ['5', 912],
+                    ['6', 783]
                 ]);
-
                 var options = {
-                    title: 'Performance',
-                    hAxis: {title: 'Day', titleTextStyle: {color: 'black'}},
-                    vAxis: {title: 'Lines of codes', titleTextStyle: {color: 'black'}}
+                    title: 'Execution Time',
+                    hAxis: {title: 'Invocation', titleTextStyle: {color: 'black'}},
+                    vAxis: {title: 'Aspect', titleTextStyle: {color: 'black'}}
+
                 };
-
-                var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
-
+                var chart = new google.visualization.LineChart(document.getElementById('Chart1'));
                 chart.draw(data, options);
-
             }
+
                                     </script>
 
-                                    <div id="chart_div2" style="width: 900px; height: 500px;"></div>
+                                    <div id="Chart1" style="width: 900px; height: 500px;"></div>
 
                                     <div class="row">&nbsp;</div>
 

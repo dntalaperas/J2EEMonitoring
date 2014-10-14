@@ -23,8 +23,7 @@
 
         <!--[if !IE]>-->
         <script type="text/javascript">
-            window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
-        </script>
+            window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");</script>
         <!--<![endif]-->
 
         <!--[if IE]>
@@ -126,61 +125,34 @@
 
                             <li>
                                 <a class="dropmenu">
-                                    <i class="fa fa-calendar"></i>
+                                    <i class="fa fa-pencil-square"></i>
                                     <span class="hidden-sm text">
-                                        Days
+                                        Methods
                                     </span>
                                     <span class="chevron closed"></span>
                                 </a>
                                 <ul style="display: block">
                                     <li>
-                                        <a class="submenu" href="#">
-                                            <i class="fa fa-clock-o"></i>
+                                        <a href="method1.html">
+                                            <i class="fa fa-pencil-square-o"></i>
                                             <span class="hidden-sm text">
-                                                &emsp;&nbsp;Day 1
+                                                &emsp;&nbsp;Method 1
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="method2.html">
+                                            <i class="fa fa-pencil-square-o"></i>
+                                            <span class="hidden-sm text">
+                                                &emsp;&nbsp;Method 2
                                             </span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <i class="fa fa-clock-o"></i>
+                                        <a href="method3.html">
+                                            <i class="fa fa-pencil-square-o"></i>
                                             <span class="hidden-sm text">
-                                                &emsp;&nbsp;Day 2
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-clock-o"></i>
-                                            <span class="hidden-sm text">
-                                                &emsp;&nbsp;Day 3
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="dropmenu">
-                                    <i class="fa fa-users"></i>
-                                    <span class="hidden-sm text">
-                                        Developers
-                                    </span>
-                                    <span class="chevron closed"></span>
-                                </a>
-                                <ul style="display: block">
-                                    <li>
-                                        <a class="submenu" href="#">
-                                            <i class="fa fa-user"></i>
-                                            <span class="hidden-sm text">
-                                                &emsp;&nbsp;Developer 1
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-user"></i>
-                                            <span class="hidden-sm text">
-                                                &emsp;&nbsp;Developer 2
+                                                &emsp;&nbsp;Method 3
                                             </span>
                                         </a>
                                     </li>
@@ -209,7 +181,7 @@
                             </a>
                         </li>
                         <li class="active">
-                            Test 1
+                            Test 2
                         </li>
                     </ol>
 
@@ -241,32 +213,31 @@
                                     <script type="text/javascript">
 
             google.load("visualization", "1", {packages: ["corechart"]});
-
             google.setOnLoadCallback(drawChart);
             function drawChart() {
                 var data = google.visualization.arrayToDataTable([
-                    ['Time', 'Progress'],
-                    ['13-10-2014', 1000],
-                    ['14-10-2014', 1170],
-                    ['15-10-2014', 630],
-                    ['16-10-2014', 870],
-                    ['17-10-2014', 950],
-                    ['18-10-2014', 912],
-                    ['19-10-2014', 783]
+                    ['Invocation', 'Aspect'],
+                    ['0', 1230],
+                    ['1', 1070],
+                    ['2', 630],
+                    ['3', 871],
+                    ['4', 950],
+                    ['5', 912],
+                    ['6', 783]
                 ]);
-
                 var options = {
-                    title: 'Developers Performance'
+                    title: 'Execution Time',
+                    hAxis: {title: 'Invocation', titleTextStyle: {color: 'black'}},
+                    vAxis: {title: 'Aspect', titleTextStyle: {color: 'black'}}
+
                 };
-
-                var chart = new google.visualization.LineChart(document.getElementById('ChartTest1'));
-
+                var chart = new google.visualization.LineChart(document.getElementById('Chart2'));
                 chart.draw(data, options);
             }
 
                                     </script>
 
-                                    <div id="ChartTest1" style="width: 900px; height: 500px;"></div>
+                                    <div id="Chart2" style="width: 900px; height: 500px;"></div>
 
                                     <div class="row">&nbsp;</div>
 
