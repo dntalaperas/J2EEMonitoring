@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.TimeMeasureMentDAO"%>
+<%@page import="com.DAO.TimeMeasureMentEntry"%>
 <!doctype html>
 <html>
     <head>
@@ -136,7 +139,7 @@
                                         <a href="method1.jsp">
                                             <i class="fa fa-pencil-square-o"></i>
                                             <span class="hidden-sm text">
-                                                &emsp;&nbsp;Binary Search
+                                                &emsp;&nbsp;Search
                                             </span>
                                         </a>
                                     </li>
@@ -144,7 +147,7 @@
                                         <a href="method2.jsp">
                                             <i class="fa fa-pencil-square-o"></i>
                                             <span class="hidden-sm text">
-                                                &emsp;&nbsp;Quick Sort
+                                                &emsp;&nbsp;Sorting
                                             </span>
                                         </a>
                                     </li>
@@ -181,7 +184,7 @@
                             </a>
                         </li>
                         <li class="active">
-                            Test 1
+                            Binary Search
                         </li>
                     </ol>
 
@@ -211,28 +214,39 @@
 
                                     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
                                     <script type="text/javascript">
+<%
+    ArrayList<TimeMeasureMentEntry> entries_binary = TimeMeasureMentDAO.getTimeMeasurements("Binary Search");
+    ArrayList<TimeMeasureMentEntry> entries_interpolation = TimeMeasureMentDAO.getTimeMeasurements("Interpolation Search");
+    
+%>                                        
 
             google.load("visualization", "1", {packages: ["corechart"]});
             google.setOnLoadCallback(drawChart);
             function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                    ['Invocation', 'Aspect'],
-                    ['0', 1230],
-                    ['1', 1070],
-                    ['2', 630],
-                    ['3', 871],
-                    ['4', 950],
-                    ['5', 912],
-                    ['6', 783]
+                var data1 = google.visualization.arrayToDataTable([
+                    ['Algorithm', 'Binary Search'],
+<% for (int i = 0; i < entries_binary.size(); i++) {%>
+                        ['<%=entries_binary.get(i).getDate()%>', <%=entries_binary.get(i).getTime()%>],
+<% } %>
+
                 ]);
+                
+                var data2 = google.visualization.arrayToDataTable([
+                    ['Algorithm', 'Interpolation Search'],
+<% for (int i = 0; i < entries_interpolation.size(); i++) {%>
+                        ['<%=entries_interpolation.get(i).getDate()%>', <%=entries_interpolation.get(i).getTime()%>],
+<% }%>
+
+                ]);                
                 var options = {
                     title: 'Execution Time',
-                    hAxis: {title: 'Invocation', titleTextStyle: {color: 'black'}},
-                    vAxis: {title: 'Aspect', titleTextStyle: {color: 'black'}}
+                    hAxis: {title: 'InvocationDate', titleTextStyle: {color: 'black'}},
+                    vAxis: {title: 'Time', titleTextStyle: {color: 'black'}}
 
                 };
                 var chart = new google.visualization.LineChart(document.getElementById('Chart1'));
-                chart.draw(data, options);
+                var joinedData = google.visualization.data.join(data1, data2, 'full', [[0, 0]], [1], [1]);
+                chart.draw(joinedData, options);
             }
 
                                     </script>

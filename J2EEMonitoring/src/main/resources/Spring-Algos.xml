@@ -7,9 +7,17 @@
 
 	</bean>
         
-	<bean id="quickSort" class="com.algorithms.sorting.MyQuickSort">
+	<bean id="interpolationSearch" class="com.algorithms.search.MyInterpolationSearch">
 
 	</bean>        
+        
+	<bean id="quickSort" class="com.algorithms.sorting.MyQuickSort">
+
+	</bean>  
+        
+	<bean id="heapSort" class="com.algorithms.sorting.MyHeapSort">
+
+	</bean>                      
  
 	<bean id="AOPAroundMethodBean" class="com.aop.AOPAroundMethod" />
  
@@ -35,5 +43,29 @@
 				<value>AOPAroundMethodBean</value>
 			</list>
 		</property>
-	</bean>         
+	</bean>     
+        
+	<bean id="interpolationSearchProxy" 
+                 class="org.springframework.aop.framework.ProxyFactoryBean">
+ 
+		<property name="target" ref="interpolationSearch" />
+ 
+		<property name="interceptorNames">
+			<list>
+				<value>AOPAroundMethodBean</value>
+			</list>
+		</property>
+	</bean>
+        
+	<bean id="heapSortProxy" 
+                 class="org.springframework.aop.framework.ProxyFactoryBean">
+ 
+		<property name="target" ref="heapSort" />
+ 
+		<property name="interceptorNames">
+			<list>
+				<value>AOPAroundMethodBean</value>
+			</list>
+		</property>
+	</bean>                                               
 </beans>
