@@ -1,8 +1,10 @@
 package com.testing;
 
 import com.DAO.AddMeasurementDAO;
+import com.algorithms.search.JavaSearch;
 import com.algorithms.search.MyInterpolationSearch;
 import com.algorithms.search.MyRecursiveBinarySearch;
+import com.algorithms.sorting.JavaSort;
 import com.algorithms.sorting.MyHeapSort;
 import com.algorithms.sorting.MyQuickSort;
 import java.sql.SQLException;
@@ -16,6 +18,8 @@ public class TestClass {
         MyQuickSort qsort = (MyQuickSort) appContext.getBean("quickSortProxy");
         MyInterpolationSearch isearch = (MyInterpolationSearch) appContext.getBean("interpolationSearchProxy");
         MyHeapSort hsort = (MyHeapSort) appContext.getBean("heapSortProxy");
+        JavaSort jsort = (JavaSort) appContext.getBean("javaSortProxy");
+        JavaSearch jsearch = (JavaSearch) appContext.getBean("javaSearchProxy");
 
         for (int i = 0; i < 25; i++) {
             bsearch.recursiveBinarySearch();
@@ -27,6 +31,8 @@ public class TestClass {
             int to = 19;
             isearch.interpolationSearch(array, value, from, to);
             AddMeasurementDAO.insertMeasurement("Interpolation Search");
+            jsearch.search(array, value);
+            AddMeasurementDAO.insertMeasurement("Java Search");
         }
         
         for (int i=0; i < 25; i++) {
@@ -35,6 +41,8 @@ public class TestClass {
             AddMeasurementDAO.insertMeasurement("Quick Sort");
             hsort.sort(array);
             AddMeasurementDAO.insertMeasurement("Heap Sort");
+            jsort.sort(array);
+            AddMeasurementDAO.insertMeasurement("Java Sort");
         }        
     }
 }

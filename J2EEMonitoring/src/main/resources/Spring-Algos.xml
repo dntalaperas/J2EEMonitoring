@@ -17,7 +17,15 @@
         
 	<bean id="heapSort" class="com.algorithms.sorting.MyHeapSort">
 
-	</bean>                      
+	</bean>     
+        
+	<bean id="javaSort" class="com.algorithms.sorting.JavaSort">
+
+	</bean>      
+        
+	<bean id="javaSearch" class="com.algorithms.search.JavaSearch">
+
+	</bean>                                                                                         
  
 	<bean id="AOPAroundMethodBean" class="com.aop.AOPAroundMethod" />
  
@@ -67,5 +75,29 @@
 				<value>AOPAroundMethodBean</value>
 			</list>
 		</property>
-	</bean>                                               
+	</bean>   
+        
+	<bean id="javaSortProxy" 
+                 class="org.springframework.aop.framework.ProxyFactoryBean">
+ 
+		<property name="target" ref="javaSort" />
+ 
+		<property name="interceptorNames">
+			<list>
+				<value>AOPAroundMethodBean</value>
+			</list>
+		</property>
+	</bean>  
+        
+	<bean id="javaSearchProxy" 
+                 class="org.springframework.aop.framework.ProxyFactoryBean">
+ 
+		<property name="target" ref="javaSearch" />
+ 
+		<property name="interceptorNames">
+			<list>
+				<value>AOPAroundMethodBean</value>
+			</list>
+		</property>
+	</bean>                                                                                                                                                                                                             
 </beans>

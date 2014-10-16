@@ -217,6 +217,7 @@
 <%
     ArrayList<TimeMeasureMentEntry> entries_binary = TimeMeasureMentDAO.getTimeMeasurements("Binary Search");
     ArrayList<TimeMeasureMentEntry> entries_interpolation = TimeMeasureMentDAO.getTimeMeasurements("Interpolation Search");
+    ArrayList<TimeMeasureMentEntry> entries_java = TimeMeasureMentDAO.getTimeMeasurements("Java Search");
     
 %>                                        
 
@@ -236,6 +237,13 @@
 <% for (int i = 0; i < entries_interpolation.size(); i++) {%>
                         ['<%=entries_interpolation.get(i).getDate()%>', <%=entries_interpolation.get(i).getTime()%>],
 <% }%>
+    ]);
+    
+                var data3 = google.visualization.arrayToDataTable([
+                    ['Algorithm', 'Java Built in Search'],
+<% for (int i = 0; i < entries_java.size(); i++) {%>
+                        ['<%=entries_java.get(i).getDate()%>', <%=entries_java.get(i).getTime()%>],
+<% }%>    
 
                 ]);                
                 var options = {
@@ -245,7 +253,11 @@
 
                 };
                 var chart = new google.visualization.LineChart(document.getElementById('Chart1'));
-                var joinedData = google.visualization.data.join(data1, data2, 'full', [[0, 0]], [1], [1]);
+                var joinedData;
+                var joinedData = new google.visualization.DataTable();
+                joinedData.addRows(data1);joinedData.addRows(data2);joinedData.addRows(data3);
+                //var joinedData = google.visualization.data.join(data1, data2, 'full', [[0, 0]], [1], [1]);
+                //joinedData = google.visualization.data.join(joinedData, data3, 'full', [[0, 0]], [1], [1]);
                 chart.draw(joinedData, options);
             }
 
