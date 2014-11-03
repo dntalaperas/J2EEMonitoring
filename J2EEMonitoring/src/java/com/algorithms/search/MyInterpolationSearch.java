@@ -11,6 +11,10 @@ package com.algorithms.search;
  */
 public class MyInterpolationSearch {
 
+    /*Interpolation search: based on lexicon-like search. A guess
+    is made based on the value and on its estimated distance in each
+    search space of the recursion.
+    */
     /**
      * Interpolation search
      *
@@ -27,6 +31,7 @@ public class MyInterpolationSearch {
             return -1; //not found
         }
         //probable position of the searched value
+        //Uses basic guess. Standard distribution assumed.
         int index = from + ((to - from) / (array[to] - array[from])) * (value - array[from]);
 
         if (array[index] == value) {
