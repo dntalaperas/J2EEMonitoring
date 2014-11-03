@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+Class for implementing Heap Sort.
+All functions are declared public. 
+Each function can be called independently and incorporated to other algorithms.
+    -This feature will be removed in final revision.
+*/
 package com.algorithms.sorting;
 
 /**
@@ -22,9 +23,9 @@ public class MyHeapSort {
             maxheap(arr, 0);
         }
     }
-    /* Function to build a heap */
+    /* Heapify function*/
 
-    public void heapify(int arr[]) {
+    void heapify(int arr[]) {
         N = arr.length - 1;
         for (int i = N / 2; i >= 0; i--) {
             maxheap(arr, i);
@@ -32,7 +33,7 @@ public class MyHeapSort {
     }
     /* Function to swap largest element in heap */
 
-    public void maxheap(int arr[], int i) {
+    void maxheap(int arr[], int i) {
         int left = 2 * i;
         int right = 2 * i + 1;
         int max = i;
