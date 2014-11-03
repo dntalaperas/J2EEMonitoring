@@ -1,5 +1,10 @@
 package com.algorithms.search;
  
+/* Basic Recursive Search
+Uses two methods:
+-call basic step with array embedded statically in the class's fields
+-recursion step needs array boundaries in order to be called
+*/
 public class MyRecursiveBinarySearch {
  
     private Integer[] myIntArray = {2,45,59,128,200,234,298,301,402,500,567,602,680,734,788,802,876,900,976,999};

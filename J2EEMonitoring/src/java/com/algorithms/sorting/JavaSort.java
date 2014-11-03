@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+/*
+This class implements Java's buil in sorting algorithm
+*/
 package com.algorithms.sorting;
 import java.util.Arrays;
 /**
