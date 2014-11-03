@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
-
+//lame comment
 public class AddMeasurementDAO {
     public static void addMeasurement(int time) throws ClassNotFoundException, SQLException {
       Class.forName("com.mysql.jdbc.Driver");
