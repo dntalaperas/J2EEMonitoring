@@ -9,16 +9,22 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.Logger;
 
  
+/*
+aspects for logging execution times.
+The aspcet measures the time and adds the measurement to a database
+Logic for handling the database (obtain measurements and sanitize data) is deferred to the calling objects.
+WARNING: Temporary measurements are *not* erased.
+*/
 public class AOPAroundMethod implements MethodInterceptor {    
         private Log log = LogFactory.getLog(this.getClass());
         
 	@Override
 	public Object invoke(MethodInvocation methodInvocation) throws Throwable {
  
-		System.out.println("Method name : "
-				+ methodInvocation.getMethod().getName());
-		System.out.println("Method arguments : "
-				+ Arrays.toString(methodInvocation.getArguments()));
+		//System.out.println("Method name : "
+		//		+ methodInvocation.getMethod().getName());
+		//System.out.println("Method arguments : "
+		//		+ Arrays.toString(methodInvocation.getArguments()));
  
 		// same with MethodBeforeAdvice
 		System.out.println("HijackAroundMethod : Before method hijacked!");
