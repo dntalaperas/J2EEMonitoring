@@ -21,7 +21,7 @@ public class TimeMeasureMentDAO {
     public static ArrayList<TimeMeasureMentEntry> getTimeMeasurements() throws ClassNotFoundException, SQLException {
         ArrayList<TimeMeasureMentEntry> entries = new ArrayList<TimeMeasureMentEntry>();
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/algorithm_metrics", "root", "!uflow!");
+        Connection connect = DriverManager.getConnection("jdbc:mysql://192.168.7.142:3306/algorithm_metrics", "root", "!uflow!");
 
 
         Statement statement = connect.createStatement();
@@ -40,7 +40,7 @@ public class TimeMeasureMentDAO {
     public static ArrayList<TimeMeasureMentEntry> getTimeMeasurements(String method) throws ClassNotFoundException, SQLException {
         ArrayList<TimeMeasureMentEntry> entries = new ArrayList<TimeMeasureMentEntry>();
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/algorithm_metrics", "root", "!uflow!");
+        Connection connect = DriverManager.getConnection("jdbc:mysql://192.168.7.142:3306/algorithm_metrics", "root", "!uflow!");
 
 
         Statement statement = connect.createStatement();

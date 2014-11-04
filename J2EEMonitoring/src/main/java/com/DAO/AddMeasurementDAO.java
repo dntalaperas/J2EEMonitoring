@@ -11,7 +11,7 @@ import java.util.Date;
 public class AddMeasurementDAO {
     public static void addMeasurement(int time) throws ClassNotFoundException, SQLException {
       Class.forName("com.mysql.jdbc.Driver");
-      Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/algorithm_metrics", "root", "!uflow!");
+      Connection connect = DriverManager.getConnection("jdbc:mysql://192.168.7.142:3306/algorithm_metrics", "root", "!uflow!");
 
 
       PreparedStatement preparedStatement = connect.prepareStatement("insert into  temp_measurement values (?)");
@@ -23,7 +23,7 @@ public class AddMeasurementDAO {
     
     public static void insertMeasurement(String algorithm) throws SQLException, ClassNotFoundException {
       Class.forName("com.mysql.jdbc.Driver");
-      Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/algorithm_metrics", "root", "!uflow!");
+      Connection connect = DriverManager.getConnection("jdbc:mysql://192.168.7.142:3306/algorithm_metrics", "root", "!uflow!");
 
 
       Statement statement = connect.createStatement();

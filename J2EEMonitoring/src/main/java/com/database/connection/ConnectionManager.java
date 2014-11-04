@@ -9,7 +9,7 @@ public class ConnectionManager {
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         if (connection == null) {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/algorithm_metrics", "root", "!uflow!");            
+            connection = DriverManager.getConnection("jdbc:mysql://192.168.7.142:3306/algorithm_metrics", "root", "!uflow!");            
         }         
         return connection;
     }
